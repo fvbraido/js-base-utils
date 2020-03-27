@@ -1,14 +1,14 @@
-var currentTime = new Date()
-var day = currentTime.getDate()
-var year = currentTime.getFullYear()
-var hour = currentTime.getHours()
-var milisec = currentTime.getMilliseconds()
-var minutes = currentTime.getMinutes()
-var month = currentTime.getMonth() + 1
-var sec = currentTime.getSeconds()
-var time = currentTime.getTime()
+export var currentTime = new Date()
+export var day = currentTime.getDate()
+export var year = currentTime.getFullYear()
+export var hour = currentTime.getHours()
+export var milisec = currentTime.getMilliseconds()
+export var minutes = currentTime.getMinutes()
+export var month = currentTime.getMonth() + 1
+export var sec = currentTime.getSeconds()
+export var time = currentTime.getTime()
 
-function monthNumberToPtBr(month_number) {
+export function monthNumberToPtBr(month_number) {
     const month_names = {
         1: "janeiro",
         2: "fevereiro",
@@ -26,7 +26,7 @@ function monthNumberToPtBr(month_number) {
     return (month_names[`${month_number}`])
 }
 
-function addLeftZero(number) {
+export function addLeftZero(number) {
     if (String(number).length === 1) {
         return `0${number}`
     } else {
@@ -34,7 +34,7 @@ function addLeftZero(number) {
     }
 };
 
-function getDaysInMonth(month, year) {
+export function getDaysInMonth(month, year) {
     month = parseInt(month);
     year = parseInt(year);
     if (!isNaN(month) && !isNaN(month)) {

@@ -27,8 +27,46 @@ export {
 } from "./currency"
 
 export { 
+    currentTime,
+    day,
+    year,
+    hour,
+    milisec,
+    minutes,
+    month,
+    sec,
+    time,
+    monthNumberToPtBr,
+    addLeftZero,
+    getDaysInMonth,
+    getDayOfCurrentWeek,
+    getMondayOfCurrentWeek,
+    getFridayOfCurrentWeek,
+    getSundayOfCurrentWeek,
+    addWeekToDate,
+    addMonthsToDate,
+    convertGMTtoUTCdateTime,
+    dateStringConverter,
+    dateStrf,
+    dateStrfBr,
+    datetimeStrfBr,
+    current_date_br,
+    current_month_year_br,
+    current_time_br,
+    current_date_written_br,
+    current_date,
+    beginning_of_month,
+    end_of_month,
+} from "./date"
+
+export { 
     getGeolocationFromAddress,
 } from "./googleMaps"
+
+export { 
+    inputMask,
+    inputMinLength
+} from "./inputMasks"
 
 export { 
     paginate,

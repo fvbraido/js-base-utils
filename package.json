@@ -1,6 +1,6 @@
 {
-    "name": "js-utils",
-    "version": "1.0.0",
+    "name": "js-base-utils",
+    "version": "1.0.1",
     "description": "Functions to use in different applications",
     "main": "dist/index.js",
     "scripts": {
@@ -8,7 +8,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/fvbraido/js-utils.git"
+        "url": "git+https://github.com/fvbraido/js-base-utils.git"
     },
     "keywords": [
         "npm"
