@@ -1,0 +1,29 @@
+{
+    "name": "js-utils",
+    "version": "1.0.0",
+    "description": "Functions to use in different applications",
+    "main": "dist/index.js",
+    "scripts": {
+        "build": "webpack --mode production"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/fvbraido/js-utils.git"
+    },
+    "keywords": [
+        "npm"
+    ],
+    "author": {
+        "name": "Felipe Braido",
+        "url": "https://github.com/fvbraido",
+        "email": "fvbraido@gmail.com"
+    },
+    "license": "MIT",
+    "devDependencies": {
+        "@babel/core": "^7.2.2",
+        "babel-loader": "^8.0.5",
+        "file-loader": "^6.0.0",
+        "webpack": "^4.28.4",
+        "webpack-cli": "^3.2.1"
+    }
+}
