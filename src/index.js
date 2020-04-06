@@ -68,9 +68,9 @@ export {
     inputMinLength
 } from "./inputMasks"
 
+// used
 export { 
     paginate,
-    rangeToArray,
 } from "./paginator"
 
 export { 
@@ -93,14 +93,14 @@ export {
 export { 
     mapFormError,
     removeElementArrayByValue,
-    toggleValueArray,
+    toggleValueArray, // used
     stringfyArrayWithKey,
     mapObjectKeysWithStringfyArrayWithKey,
     extractKeyValueFromArrayOfObjects,
     swapObjectKeyName,
     mapArrElToArrObj,
-    objectFromArray,
     inputAttributeModel,
-    avoidNullProperty,
+    avoidNull, // used
+    forceArray, // used
 } from "./utilities"
 

@@ -1,39 +1,37 @@
 // fiven X elements and y per_page, return how many pages are needed
-export function paginate(length, per_page, page) {
-    // declare variables
-    var numberPages = [];
-    var start_range = 1;
-    var end_range = 1;
-
-    // default per_page
-    if (!per_page) {
-      per_page = 5;
-    }
-
-    // default page
-    if (!page) {
-      page = 1;
-    }
-
-    // calculates the index to start and end an array, paginating it
-    if ( (length - 1) < (per_page*page - 1) ) {
-      page = Math.ceil(length/per_page);
-      start_range = per_page * ( page - 1);
-      end_range = length - 1
+export function paginate(start_range, end_range, page) {
+  var buttons = []
+  if (start_range >= 0 && end_range >= 0 && page >= 1) {
+    if (end_range <= 6) {
+      buttons = rangeToArray(start_range, end_range)
     } else {
-      start_range = per_page * ( page - 1);
-      end_range = (per_page*page) - 1
+      if (page <= start_range + 3) {
+        buttons = rangeToArray(start_range, 5)
+        buttons.push("...")
+        buttons.push(end_range)
+      } else if (page > start_range + 3 && page < end_range - 3) {
+        buttons.push(start_range)
+        buttons.push("...")
+        buttons = buttons.concat(rangeToArray(page - 1, page + 1))
+        buttons.push("...")
+        buttons.push(end_range)
+      } else {
+        buttons.push(start_range)
+        buttons.push("...")
+        buttons = buttons.concat(rangeToArray(end_range - 4, end_range))
+      }
     }
-
-    for (var i = 1; i <= Math.ceil(length/per_page); i++) {
-      numberPages.push(i);
-    }
-
-    return {start_range, end_range, numberPages};
+  } else {
+    buttons = [1]
+  }
+  if (buttons.length <= 1) {
+    buttons = [1]
+  }
+  return buttons
 }
 
 // return array of numbers from x to x+k
-export function rangeToArray(start_range, end_range){
+export function rangeToArray(start_range, end_range) {
   var numberPages = [];
   for (var i = start_range; i <= end_range; i++) {
     numberPages.push(i);

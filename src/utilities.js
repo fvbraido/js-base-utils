@@ -24,6 +24,13 @@ export function removeElementArrayByValue(arr, valueToRemove) {
 // If array contains value, remove it; else, add it
 export function toggleValueArray(array, value) {
     let newArray = [];
+    if (array) {
+        if (!Array.isArray(array)) {
+            array = [array]
+        }
+    } else {
+        array = []
+    }
     if (array.includes(value)) {
         newArray = array.filter(item => item !== value);
     } else {
@@ -73,6 +80,7 @@ export function swapObjectKeyName(obj, oldKey, newKey) {
 }
 
 // Given [el1, el2, el3, ] (arr), key => return [{key: el1}, {key: el2}, {key: el3}]
+// objectFromArray was same
 export function mapArrElToArrObj(arr, key) {
     var resultingArr = [];
     var obj = {};
@@ -88,21 +96,6 @@ export function mapArrElToArrObj(arr, key) {
     return (resultingArr);
 }
 
-// Given a KEY and ARRAY, retunr [{key: el1}, {key: el2}]
-export function objectFromArray(key, arr) {
-    var array = [];
-    var local_obj = {};
-    if (arr) {
-        for (var i = 0; i < arr.length; i++) {
-            local_obj = {};
-            local_obj[key] = arr[i];
-            array.push(local_obj)
-        }
-    }
-    return array;
-}
-
-
 // Set input state related to local model and attribute
 export function inputAttributeModel(inputModel, inputName, inputValue, inputsState) {
     if (inputsState[inputModel] === undefined) {
@@ -112,10 +105,33 @@ export function inputAttributeModel(inputModel, inputName, inputValue, inputsSta
     return (inputsState);
 }
 
-export function avoidNullProperty(object, key) {
-    if (object) {
-        return object[`${key}`];
+//
+export function avoidNull(obj, returnAs) {
+    if (obj) {
+        return obj;
     } else {
-        return false;
+        if (returnAs === "array") {
+            return []
+        } else if (returnAs === "number") {
+            return 0
+        } else if (returnAs === "string") {
+            return ""
+        } else if (returnAs === "bool") {
+            return false
+        } else {
+            return {}
+        }
     }
+}
+
+// 
+export function forceArray(el) {
+    if (el) {
+        if (!Array.isArray(el)) {
+            el = [el]
+        }
+    } else {
+        el = []
+    }
+    return el
 }
