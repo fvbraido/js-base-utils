@@ -76,6 +76,7 @@ export {
 export { 
     sortGroupByKeys,
     sortByKey,
+    sortBy,
 } from "./sort"
 
 export { 
@@ -102,5 +103,6 @@ export {
     inputAttributeModel,
     avoidNull, // used
     forceArray, // used
+    objFromModelAndExtractor, // used
 } from "./utilities"
 

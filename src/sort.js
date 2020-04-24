@@ -33,3 +33,13 @@ export function sortByKey(a, b, firstKey, direction) {
     }
     return result;
 }
+
+export function sortBy(a, b, firstKey, secondKey, direction, sort = false, twoKeys = false) {
+    if (sort && twoKeys) {
+        return sortGroupByKeys(a, b, firstKey, secondKey, direction)
+    } else if (sort && firstKey) {
+        return sortByKey(a, b, firstKey, direction)
+    } else {
+        return true
+    }
+}

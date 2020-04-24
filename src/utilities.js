@@ -135,3 +135,18 @@ export function forceArray(el) {
     }
     return el
 }
+
+// Create object using model and data extractor
+export function objFromModelAndExtractor(element, dataExtracor) {
+    var result = {};
+    if (element && dataExtracor) {
+        for (var i = 0; i < dataExtracor.length; i++) {
+            if (dataExtracor[i].value) {
+                result[dataExtracor[i].name] = element[dataExtracor[i].value];
+            } else {
+                result[dataExtracor[i].name] = dataExtracor[i].string;
+            }
+        }
+    }
+    return result
+}

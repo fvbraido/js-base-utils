@@ -1,6 +1,6 @@
 {
     "name": "js-base-utils",
-    "version": "1.0.10",
+    "version": "1.0.15",
     "description": "Functions to use in different applications",
     "main": "dist/index.js",
     "scripts": {
@@ -25,5 +25,8 @@
         "file-loader": "^6.0.0",
         "webpack": "^4.28.4",
         "webpack-cli": "^3.2.1"
+    },
+    "dependencies": {
+        "url-loader": "^4.1.0"
     }
 }
