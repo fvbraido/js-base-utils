@@ -19,3 +19,28 @@ export function signBasedOnTotal(total, local_amount) {
     return 0
   }
 }
+
+
+export function decimalToCurrencyBrazilian(value) {
+  if (value) {
+    var valueString = String(value);
+    if (valueString.charAt(0) !== "R"){
+      valueString = valueString.replace(/\,/g,'')
+      valueString = valueString.replace(/\./g,',')
+      valueString = `R$ ${valueString}`
+      if (valueString.includes(",")) {
+        const splitted = valueString.split(',');
+        if (splitted[1].length === 1) {
+          valueString = `${valueString}0`
+        }
+      } else {
+        valueString = `${valueString},00`
+      }
+      return valueString;
+    } else {
+      return valueString;
+    }
+  } else {
+    return `R$ 00,00`;
+  }
+}

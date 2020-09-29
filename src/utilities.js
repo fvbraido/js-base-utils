@@ -137,16 +137,90 @@ export function forceArray(el) {
 }
 
 // Create object using model and data extractor
-export function objFromModelAndExtractor(element, dataExtracor) {
+export function objFromModelAndExtractor(element, dataExtracor, element2) {
     var result = {};
     if (element && dataExtracor) {
         for (var i = 0; i < dataExtracor.length; i++) {
             if (dataExtracor[i].value) {
                 result[dataExtracor[i].name] = element[dataExtracor[i].value];
+            } else if (dataExtracor[i].selected) {
+                result[dataExtracor[i].name] = element2[dataExtracor[i].selected];
             } else {
                 result[dataExtracor[i].name] = dataExtracor[i].string;
             }
         }
     }
     return result
+}
+
+// return true if file extension in whitelist
+export function validateFileFormat(file, whitelistArray = []) {
+    var bool = false;
+    var name = file.name || file;
+    name = name.split(".").slice(-1)[0].toLowerCase()
+    if (whitelistArray.includes(name)) {
+        bool = true;
+    }
+    return (bool);
+};
+
+
+// return file extension
+export function fileExtension(file, formats) {
+    var extension = "image";
+    var name = file.name || file;
+    if (name) {
+        if (formats.doc_format.includes(name.split(".").slice(-1)[0].toLowerCase())) {
+            extension = "docx";
+        } else if (formats.pdf_format.includes(name.split(".").slice(-1)[0].toLowerCase())) {
+            extension = "pdf";
+        } else if (formats.video_format.includes(name.split(".").slice(-1)[0].toLowerCase())) {
+            extension = "video";
+        } else if (formats.audio_format.includes(name.split(".").slice(-1)[0].toLowerCase())) {
+            extension = "audio";
+        } else if (formats.excel_format.includes(name.split(".").slice(-1)[0].toLowerCase())) {
+            extension = "excel";
+        } else if (formats.image_format.includes(name.split(".").slice(-1)[0].toLowerCase())) {
+            extension = "image"
+        }
+    }
+    return (extension);
+};
+
+// render Image or Icon
+export function renderFileImageOrIcon(file, renderKey, formats, assets) {
+    var url = "";
+    var name = file.name;
+    if (name) {
+        if (formats.doc_format.includes(name.split(".").slice(-1)[0].toLowerCase())) {
+            url = assets.doc;
+        } else if (formats.pdf_format.includes(name.split(".").slice(-1)[0].toLowerCase())) {
+            url = assets.pdf;
+        } else if (formats.video_format.includes(name.split(".").slice(-1)[0].toLowerCase())) {
+            url = assets.video;
+        } else if (formats.audio_format.includes(name.split(".").slice(-1)[0].toLowerCase())) {
+            url = assets.video;
+        } else if (formats.excel_format.includes(name.split(".").slice(-1)[0].toLowerCase())) {
+            url = assets.excel;
+        } else if (formats.image_format.includes(name.split(".").slice(-1)[0].toLowerCase())) {
+            if (file.data) {
+                url = URL.createObjectURL(file.data);
+            } else {
+                url = file[`${renderKey}`];
+            }
+        } else {
+            url = assets.file;
+        }
+    }
+    return (url);
+};
+
+// array from range
+export function createArrayFromRange(n_min, n_max) {
+    var array = [];
+    while (n_min <= n_max) {
+        array.push(n_min);
+        n_min += 1;
+    }
+    return array;
 }

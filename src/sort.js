@@ -40,6 +40,6 @@ export function sortBy(a, b, firstKey, secondKey, direction, sort = false, twoKe
     } else if (sort && firstKey) {
         return sortByKey(a, b, firstKey, direction)
     } else {
-        return true
+        return 0
     }
 }

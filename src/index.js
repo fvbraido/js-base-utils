@@ -7,14 +7,16 @@ export {
     excel,
     file,
     favicon,
+} from "./assets"
+
+export {
     doc_format,
     pdf_format,
     excel_format,
     video_format,
     image_format,
     audio_format,
-    renderFileImageOrIcon,
-} from "./assets"
+} from "./formats"
 
 export { 
     getBrowserLocation,
@@ -24,6 +26,7 @@ export {
 export { 
     replaceNegativos,
     signBasedOnTotal,
+    decimalToCurrencyBrazilian,
 } from "./currency"
 
 export { 
@@ -57,6 +60,9 @@ export {
     current_date,
     beginning_of_month,
     end_of_month,
+    strHour,
+    strDate,
+    getCurrentIsoTimeToFormInput,
 } from "./date"
 
 export { 
@@ -104,5 +110,9 @@ export {
     avoidNull, // used
     forceArray, // used
     objFromModelAndExtractor, // used
+    fileExtension, // used
+    renderFileImageOrIcon, // used
+    createArrayFromRange, // used
+    validateFileFormat, // used
 } from "./utilities"
 
