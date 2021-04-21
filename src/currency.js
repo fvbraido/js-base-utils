@@ -44,3 +44,16 @@ export function decimalToCurrencyBrazilian(value) {
     return `R$ 00,00`;
   }
 }
+
+// Currency input to decimal output
+export function currencyToDecimal(value) {
+  var valueString = String(value);
+  valueString = valueString.replace(/\./g,'')
+  valueString = valueString.replace(/\_/g,'')
+  valueString = valueString.replace(/\,/g,'.')
+  valueString = valueString.replace("R$ ",'')
+  if (valueString.slice(-1) === ".") {
+    valueString = valueString + "0"
+  }
+  return valueString;
+}

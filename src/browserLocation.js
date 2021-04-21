@@ -9,7 +9,15 @@ export function getBrowserLocation() {
 
 export function returnBrowserLocation(position) {
     if (position) {
-        return {lat: position.coords.latitude, lng: position.coords.longitude, }
+        return {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+            accuracy: position.coords.accuracy,
+            altitude: position.coords.altitude,
+            altitudeAccuracy: position.coords.altitudeAccuracy,
+            heading: position.coords.heading,
+            speed: position.coords.speed,
+        }
     } else {
         return null
     }

@@ -27,6 +27,7 @@ export {
     replaceNegativos,
     signBasedOnTotal,
     decimalToCurrencyBrazilian,
+    currencyToDecimal,
 } from "./currency"
 
 export { 
@@ -63,6 +64,7 @@ export {
     strHour,
     strDate,
     getCurrentIsoTimeToFormInput,
+    datetimeOlderThan,
 } from "./date"
 
 export { 
@@ -71,7 +73,11 @@ export {
 
 export { 
     inputMask,
-    inputMinLength
+    inputMinLength,
+    parseToNumber,
+    validator,
+    compareAppearIf,
+    typeResolver,
 } from "./inputMasks"
 
 // used
@@ -116,3 +122,10 @@ export {
     validateFileFormat, // used
 } from "./utilities"
 
+export { 
+    setRequestConfig,
+    returnRequestData,
+    downloadFromAxiosResponse,
+    downloadFromUrl,
+    stateRequestData,
+} from "./httpRequests"

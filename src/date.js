@@ -187,3 +187,17 @@ export function getCurrentIsoTimeToFormInput(time = "") {
     var localISOTime = (new Date(Date.now() - tzoffset)).toISOString().slice(0, -1);
     return localISOTime;
 }
+
+
+export function datetimeOlderThan(initial_date, threshold, threshold_unity = "min") {
+    var result = false;
+    var diff = (new Date() - new Date(initial_date));
+    var diff_min = Math.round(((diff % 86400000) % 3600000) / 60000);
+    if (threshold_unity === "year") {
+        threshold_unity = threshold_unity * 365 * 24 * 60;
+    }
+    if (diff_min >= threshold) {
+      result = true
+    }
+    return result
+}
