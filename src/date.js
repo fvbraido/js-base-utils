@@ -119,6 +119,8 @@ export function dateStrf(yyyy_mm_dd, output_format, separator) {
     if (jsDate) {
         if (output_format === "DD-MM-YYYY") {
             return `${addLeftZero(jsDate.getDate())}${separator}${addLeftZero(jsDate.getMonth() + 1)}${separator}${jsDate.getFullYear()}`
+        } else if (output_format === "MM-YYYY") {
+            return `${addLeftZero(jsDate.getMonth() + 1)}${separator}${jsDate.getFullYear()}`
         } else {
             return yyyy_mm_dd;
         }
@@ -130,6 +132,11 @@ export function dateStrf(yyyy_mm_dd, output_format, separator) {
 // Get a YYYY-MM-DD date and display in different forms
 export function dateStrfBr(yyyy_mm_dd) {
     return dateStrf(yyyy_mm_dd, "DD-MM-YYYY", "/")
+}
+
+// Get a YYYY-MM-DD date and display in different forms
+export function dateStrfDayMonthBr(yyyy_mm_dd) {
+    return dateStrf(yyyy_mm_dd, "MM-YYYY", "/")
 }
 
 // Get a YYYY-MM-DDTHH:MM:SS date and in Brazilian DD/MM/YYYY HH:MM

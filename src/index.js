@@ -53,6 +53,7 @@ export {
     dateStringConverter,
     dateStrf,
     dateStrfBr,
+    dateStrfDayMonthBr,
     datetimeStrfBr,
     current_date_br,
     current_month_year_br,
