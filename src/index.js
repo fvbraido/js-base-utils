@@ -121,6 +121,7 @@ export {
     renderFileImageOrIcon, // used
     createArrayFromRange, // used
     validateFileFormat, // used
+    uniqArrayElementsBasedOnKey,
 } from "./utilities"
 
 export { 
@@ -130,3 +131,15 @@ export {
     downloadFromUrl,
     stateRequestData,
 } from "./httpRequests"
+
+
+export {
+    cellphoneMask,
+    cpfMask,
+} from "./formMasks"
+
+export {
+    regexCellphone,
+    regexTwoWords,
+    isCpf,
+} from "./formValidations"

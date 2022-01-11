@@ -224,3 +224,16 @@ export function createArrayFromRange(n_min, n_max) {
     }
     return array;
 }
+
+// Retur only uniq values of array of objects based on key
+export function uniqArrayElementsBasedOnKey(items, key) {
+    const result = [];
+    const map = new Map();
+    for (const item of items) {
+        if (!map.has(item[key])) {
+            map.set(item[key], true);
+            result.push(item);
+        }
+    }
+    return result
+}
