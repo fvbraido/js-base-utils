@@ -136,6 +136,7 @@ export {
 export {
     cellphoneMask,
     cpfMask,
+    cpfCnpjMask,
 } from "./formMasks"
 
 export {
